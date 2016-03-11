@@ -1,11 +1,11 @@
-;
-(function() {
+;(function() {
     var Game = function(canvasId) {
 
     	//query selectors
         var canvas = document.getElementById("screen");
         var screen = canvas.getContext('2d');
-        var imgRect = document.getElementById("justin");
+        var imgRect = document.getElementById("cat");
+        var imgPlayer = document.getElementById("justin");
         var imgJason = document.getElementById("jason");
         var imgKaylan = document.getElementById("kaylan");
         var imgJosh = document.getElementById("josh");
@@ -20,16 +20,12 @@
         //gameSize
         var gameSize = { x: canvas.width, y: canvas.height };
         console.log("hi")
-            //this.bodies = createInvaders(this).concat(new Player(this, gameSize));
+    
+        this.bodies = createInvaders(this).concat(new Player(this, gameSize));
+        console.log(this.bodies)
+       
 
-        var createPlayer = function(game) {
-            var player = []
-            player.push(new Player(this, gameSize))
-            return player;
-        }
-
-
-        this.bodies = createPlayer(this, gameSize).concat(createInvaders(this));
+      // this.bodies = createPlayer(this, gameSize).concat(createInvaders(this));
 
         var self = this;
         loadSound("shoot.wav", function(shootSound) {
@@ -58,22 +54,101 @@
         },
 
         draw: function(screen, gameSize) {
-            screen.clearRect(0, 0, gameSize.x, gameSize.y);
-            drawJason(screen, this.bodies[1]);
-            drawKaylan(screen, this.bodies[2]);
-            drawAdan(screen, this.bodies[3]);
-            drawThuy(screen, this.bodies[4]);
-            drawNatalia(screen, this.bodies[5]);
-            drawWensie(screen, this.bodies[6]);
-            drawJosh(screen, this.bodies[7]);
-            drawKat(screen, this.bodies[8]);
-            drawThomas(screen, this.bodies[9]);
-            drawMichael(screen, this.bodies[10]);
-            drawBoaz(screen, this.bodies[11]);
+                screen.clearRect(0, 0, gameSize.x, gameSize.y);
 
-            drawRect(screen, this.bodies[0]);
-            for (var i = 12; i < this.bodies.length; i++) {
-                drawRect(screen, this.bodies[i]);
+for(var i = 0; i < this.bodies.length; i++) {
+           if (this.bodies[i] instanceof Invader) {
+            switch(i) {
+            case 0: 
+                drawKaylan(screen, this.bodies[0]);
+                break;
+            case 1: 
+                drawKaylan(screen, this.bodies[1]);
+                break;
+            case 2:
+                drawJason(screen, this.bodies[2]);
+                break
+
+           case 3:
+                drawKat(screen, this.bodies[3]);
+                  break
+            case 4:
+                drawBoaz(screen, this.bodies[4]);
+                  break
+            case 5:
+                drawThuy(screen, this.bodies[5]);
+                  break
+            case 6:
+                drawThuy(screen, this.bodies[6]);
+                  break
+            case 7:
+                drawThomas(screen, this.bodies[7]);
+                  break
+             case 8:
+                drawWensie(screen, this.bodies[8]);
+                  break
+             case 9:
+                drawNatalia(screen, this.bodies[9]);
+                  break
+            case 10:
+                drawJason(screen, this.bodies[10]);
+                  break
+             case 11:
+                drawKat(screen, this.bodies[11]);
+                  break
+              case 12:
+                drawThuy(screen, this.bodies[12]);
+                  break
+              case 13:
+                drawMichael(screen, this.bodies[13]);
+                  break
+              case 14:
+                drawAdan(screen, this.bodies[14]);
+                  break
+              case 15:
+                drawAri(screen, this.bodies[15]);
+                  break
+
+            case 16:
+             drawJosh(screen, this.bodies[16]);
+                  break
+             case 17:
+                drawNatalia(screen, this.bodies[17]);
+                  break
+             case 18:
+                drawThomas(screen, this.bodies[18]);
+                  break
+             case 19:
+                drawKaylan(screen, this.bodies[19]);
+                  break
+             case 20:
+                drawWensie(screen, this.bodies[20]);
+                  break
+             case 21:
+                drawJosh(screen, this.bodies[21]);
+                  break
+             case 22:
+                drawMichael(screen, this.bodies[22]);
+                  break
+              case 23:
+                drawBoaz(screen, this.bodies[23]);
+                  break
+            case 24:
+                drawAdan(screen, this.bodies[24]);
+                  break
+            case 25:
+                drawAdan(screen, this.bodies[25]);
+                  break
+           }
+       }
+
+            if (this.bodies[i] instanceof Bullet) {
+                drawJason(screen, this.bodies[i]);
+            }
+            if (this.bodies[i] instanceof Player) {
+                drawJustin(screen, this.bodies[i]);
+
+            }
             }
 
         },
@@ -165,14 +240,31 @@
         }
     };
 
+	var createPlayer = function(game) {
+            var player = []
+            player.push(new Player(game, gameSize))
+            return player;
+        }
+
+
+
    
 //drawingfolks
-    var drawRect = function(screen, body) {
+
+     var drawRect = function(screen, body) {
         //screen.fillRect(,
         // 
         //  body.size.x, body.size.y);//
-        var imgRect = document.getElementById("justin");
+        var imgRect = document.getElementById("cat");
         screen.drawImage(imgRect, body.center.x - body.size.x / 2, body.center.y - body.size.y / 2, body.size.x, body.size.y);
+    };
+
+    var drawJustin = function(screen, body) {
+        //screen.fillRect(,
+        // 
+        //  body.size.x, body.size.y);//
+        var imgPlayer = document.getElementById("justin");
+        screen.drawImage(imgPlayer, body.center.x - body.size.x / 2, body.center.y - body.size.y / 2, body.size.x, body.size.y);
     };
 
     var drawJason = function(screen, body) {
