@@ -1,21 +1,9 @@
 ;(function() {
     var Game = function(canvasId) {
 
-    	//query selectors
+        //query selectors
         var canvas = document.getElementById("screen");
         var screen = canvas.getContext('2d');
-        var imgRect = document.getElementById("cat");
-        var imgPlayer = document.getElementById("justin");
-        var imgJason = document.getElementById("jason");
-        var imgKaylan = document.getElementById("kaylan");
-        var imgJosh = document.getElementById("josh");
-        var imgThuy = document.getElementById("thuy");
-        var imgAdan = document.getElementById("adan");
-        var imgNatalia = document.getElementById("natalia");
-        var imgWensie = document.getElementById("wensie");
-        var imgBoaz = document.getElementById("boaz");
-        var imgMichael = document.getElementById("michael");
-        var imgAri = document.getElementById("ari");
 
         //gameSize
         var gameSize = { x: canvas.width, y: canvas.height };
@@ -63,7 +51,7 @@ for(var i = 0; i < this.bodies.length; i++) {
                 drawKaylan(screen, this.bodies[0]);
                 break;
             case 1: 
-                drawKaylan(screen, this.bodies[1]);
+                drawBrian(screen, this.bodies[1]);
                 break;
             case 2:
                 drawJason(screen, this.bodies[2]);
@@ -91,16 +79,16 @@ for(var i = 0; i < this.bodies.length; i++) {
                 drawNatalia(screen, this.bodies[9]);
                   break
             case 10:
-                drawJason(screen, this.bodies[10]);
+                drawThuy(screen, this.bodies[10]);
                   break
              case 11:
                 drawKat(screen, this.bodies[11]);
                   break
               case 12:
-                drawThuy(screen, this.bodies[12]);
+                drawJason(screen, this.bodies[12]);
                   break
               case 13:
-                drawMichael(screen, this.bodies[13]);
+                drawAri(screen, this.bodies[13]);
                   break
               case 14:
                 drawAdan(screen, this.bodies[14]);
@@ -119,7 +107,7 @@ for(var i = 0; i < this.bodies.length; i++) {
                 drawThomas(screen, this.bodies[18]);
                   break
              case 19:
-                drawKaylan(screen, this.bodies[19]);
+                drawChristie(screen, this.bodies[19]);
                   break
              case 20:
                 drawWensie(screen, this.bodies[20]);
@@ -128,7 +116,7 @@ for(var i = 0; i < this.bodies.length; i++) {
                 drawJosh(screen, this.bodies[21]);
                   break
              case 22:
-                drawMichael(screen, this.bodies[22]);
+                drawTravis(screen, this.bodies[22]);
                   break
               case 23:
                 drawBoaz(screen, this.bodies[23]);
@@ -168,7 +156,7 @@ for(var i = 0; i < this.bodies.length; i++) {
 //Invaders
     var Invader = function(game, center) {
         this.game = game;
-        this.size = { x: 15, y: 15 };
+        this.size = { x: 29, y: 29};
         this.center = center;
         this.patrolX = 0;
         this.speedX = 0.3;
@@ -217,7 +205,7 @@ for(var i = 0; i < this.bodies.length; i++) {
 //Player
     var Player = function(game, gameSize) {
         this.game = game;
-        this.size = { x: 40, y: 40 };
+        this.size = { x: 50, y: 50 };
         this.center = { x: gameSize.x / 2, y: gameSize.y - this.size.x };
         this.keyboarder = new Keyboarder();
     };
@@ -240,7 +228,7 @@ for(var i = 0; i < this.bodies.length; i++) {
         }
     };
 
-	var createPlayer = function(game) {
+    var createPlayer = function(game) {
             var player = []
             player.push(new Player(game, gameSize))
             return player;
@@ -338,6 +326,25 @@ for(var i = 0; i < this.bodies.length; i++) {
         var imgInvader = document.getElementById("thomas");
         screen.drawImage(imgInvader, body.center.x - body.size.x / 2, body.center.y - body.size.y / 2, body.size.x, body.size.y);
     };
+
+      var drawChristie = function(screen, body) {
+
+        var imgInvader = document.getElementById("christie");
+        screen.drawImage(imgInvader, body.center.x - body.size.x / 2, body.center.y - body.size.y / 2, body.size.x, body.size.y);
+    };
+
+      var drawBrian = function(screen, body) {
+
+        var imgInvader = document.getElementById("brian");
+        screen.drawImage(imgInvader, body.center.x - body.size.x / 2, body.center.y - body.size.y / 2, body.size.x, body.size.y);
+    };
+
+    var drawTravis = function(screen, body) {
+
+        var imgInvader = document.getElementById("travis");
+        screen.drawImage(imgInvader, body.center.x - body.size.x / 2, body.center.y - body.size.y / 2, body.size.x, body.size.y);
+    };
+
 
 //enddrawingfolks
 
