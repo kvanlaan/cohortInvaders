@@ -1,7 +1,6 @@
 img {
     display: none;
-    width: 1896px;
-    height: 740px;
+    
 }
 
 canvas {
@@ -50,6 +49,7 @@ h2 {
 }
 #container {
 	background-image: url("ironyard.jpeg");
+    background-size: 1896px 740px;
 	vertical-align: top;
 	position: fixed;
   z-index: -1;
