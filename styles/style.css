@@ -11,16 +11,43 @@ canvas {
 }
 
 h1 {
-
+    font-size: 72px;
     font-family: "papyrus";
     text-align: center;
-    color: rgba(255,0,0,0.65);
+    color: rgba(192,192,192,0.8);
      background-color: rgba(255,0,0,0.1);
-    text-decoration: underline;
+   
     margin-top: 4%;
-    padding: 2px;
+    padding: 0;
+    margin-bottom: 0;
+       -webkit-text-stroke: .005px Black;
 }
 
+
+#headiline {
+    background-color: rgba(255,255,255,0.1);
+
+
+}
+h2 {
+  font-size: 30px;
+   font-family: "papyrus";
+   
+    text-align: center;
+   color:rgba(255,255,255,0.8);
+    
+
+    margin-top: -3.1%;
+    padding: 0px;
+    
+    width: 30%;
+    text-align: center;
+    margin-left: 35%;
+    -webkit-text-stroke: .000000001px Black;
+   
+    
+        
+}
 #container {
 	background-image: url("ironyard.jpeg");
 	vertical-align: top;
